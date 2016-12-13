@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+
+        }
+
+        ul {
+            height: 600px;
+            position: relative;
+        }
+
+        li {
+            width: 60px;
+            height: 100px;
+            list-style: none;
+            float: left;
+            margin-left: 70px;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="animate2.js"></script>
+<script>
+    var box = document.getElementById("box");
+    var ul = box.children[0];
+    var li = ul.children;
+    var flag=false;
+    var colors = ["green", "blue", "pink", "yellow", "orange", "yellowgreen", "black", "#ff024d", "#9B00FF", "red"];
+    var a1=[105,137,142,158,163,120,116];
+    var sumer=parseInt(Math.ceil(Math.random()*10+0));
+
+
+     
+    for(i=0;i<li.length;i++){
+            var value=Math.ceil(Math.random()*50+100);
+
+
+            twoo();
+            setTimeout("threee()",1100);
+
+            }
+
+
+
+
+
+
+
+
+
+        function threee(){
+            for(i=0;i<li.length;i++){
+                li[i].onmouseover= function () {
+                    var one=this;
+                    flag=false;
+                    animate(this,{height:500}, function () {
+                        return flag=true;});}
+
+                li[i].onmouseout= function () {
+                    var one=this;
+                    if(flag){
+                        animate(one,{height:100});
+                    }else{
+                        animate(this,{height:500}, function () {
+                            animate(one,{height:100});});}}
+            }
+        }
+
+
+
+
+
+
+
+    function twoo(){
+            flag=false;
+
+        for (i = 0; i < li.length; i++) {
+            flag=false;
+
+            li[i].index = i;
+            li[i].style.backgroundColor = colors[i];
+            li[i].style.left = i * 130 + "px";
+            var oo = li[i];
+
+            animate(oo, {height: 600}, function (tag) {
+                tag.style.bottom = "0px";
+
+
+                animate(tag,{"height":100}, function () {
+
+                });
+
+            });
+
+            flag=true;
+
+        }
+            flag=true
+
+
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
